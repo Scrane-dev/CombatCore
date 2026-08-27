@@ -1,0 +1,17 @@
+{
+    "editor.quickSuggestions": {
+        "other": "off",
+        "comments": "off",
+        "strings": "off"
+    },
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.parameterHints.enabled": false,
+    "editor.hover.enabled": "off",
+    "editor.codeLens": false,
+    "editor.wordBasedSuggestions": "off",
+    "editor.selectionHighlight": false,
+    "editor.occurrencesHighlight": "off",
+    "java.autobuild.enabled": false,
+    "java.imports.enabled": false,
+    "java.completion.enabled": false
+}  
