@@ -6,13 +6,13 @@ public class CombatCore {
         while (Hero.dead() == false && Villian.dead() == false) {
             if (Hero.getCurrentHp() > 0) {
                 Villian.takeDamage(Hero.getAttack());
-                System.out.println("The Villan has" + Villian.getCurrentHp() +  " health left!");
+                System.out.println("The Villan has " + Villian.getCurrentHp() +  " health left!");
             }
             
             if (Villian.getCurrentHp() > 0) {
 
                 Hero.takeDamage(Villian.getAttack());
-                System.out.println("The Hero has" + Hero.getCurrentHp()  + " health left!");
+                System.out.println("The Hero has " + Hero.getCurrentHp()  + " health left!");
             }
         }
         if (Hero.dead()) {
