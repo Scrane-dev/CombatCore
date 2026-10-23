@@ -16,9 +16,12 @@ class Character{
         this.defense = defense;
     }
     // Taking damage
-    public int takeDamage() {
-        //dmg = raw dmg x (100/ (100 + defense)) I searched for a simple math function
-        this.currentHp = this.attack * (100 / (100 + this.defense));
+    public int takeDamage(int damage) {
+        //dmg = raw dmg x (100/ (100 + defense)) I searched for a simple math function 100 22 15
+        this.currentHp = currentHp - (damage * 100) / (100 + this.defense);
+        if (currentHp <= 0) {
+            currentHp = 0;
+        }
         return currentHp;
     }
     // Healing damage
