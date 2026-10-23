@@ -2,30 +2,41 @@
 
 class Character{
     private String name;
-    private long maxHp;
-    private long currentHp;
-    private long attack;
-    private long defense;
+    private int maxHp;
+    private int currentHp;
+    private int attack;
+    private int defense;
     private String[] actions = {"Attack", "Defend", "Heal"};
+
+    public setCurrentHp(int maxHp) {
+        this.currentHp = maxHp;
+    }
+    // Taking damage
+    public int takeDamage(int attack, int defense, int currentHp) {
+        //dmg = raw dmg x (100/ (100 + defense)) I searched for a simple math function
+        this.currentHp = attack * (100 / (100 + defense));
+        return currentHp;
+    }
+    // Healing damage
+    public int heal(int currentHp) {
+        this.currentHp = currentHp + 15; // needs work
+        return currentHp;
+    }
+    // Check if dead
+    public boolean dead(int currentHp) {
+        boolean death = false;
+        if (currentHp > 0) {
+            continue;
+        }
+        else {
+            death = true;
+        }
+        return death;
+    }
+
     
-    ///////////////////
-    // Setter methods/
-    /////////////////
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setMaxHp(long maxHp) {
-        this.maxHp = maxHp;
-    }
-    public void setCurrentHp(long currentHp) {
-        this.currentHp = currentHp;
-    }
-    public void setAttack(long attack) {
-        this.attack = attack;
-    }
-    public void setDefense(long defense) {
-        this.defense = defense;
-    }
+            
+    
     //////////////////
     //Getter methods/
     ////////////////
@@ -44,5 +55,9 @@ class Character{
     public long getDefense(){
         return defense;
     }
+    public Character(name, maxHp, attack, defense) {
+
+    
+        
 }
 
