@@ -8,13 +8,17 @@ class Character{
     private int defense;
     private String[] actions = {"Attack", "Defend", "Heal"};
 
-    public setCurrentHp(int maxHp) {
+    public Character(String name,int maxHp, int attack, int defense) {
+        this.name = name;
+        this.maxHp = maxHp;
         this.currentHp = maxHp;
+        this.attack = attack;
+        this.defense = defense;
     }
     // Taking damage
-    public int takeDamage(int attack, int defense, int currentHp) {
+    public int takeDamage() {
         //dmg = raw dmg x (100/ (100 + defense)) I searched for a simple math function
-        this.currentHp = attack * (100 / (100 + defense));
+        this.currentHp = this.attack * (100 / (100 + this.defense));
         return currentHp;
     }
     // Healing damage
@@ -23,10 +27,10 @@ class Character{
         return currentHp;
     }
     // Check if dead
-    public boolean dead(int currentHp) {
+    public boolean dead() {
         boolean death = false;
         if (currentHp > 0) {
-            continue;
+            death = false;
         }
         else {
             death = true;
@@ -43,19 +47,18 @@ class Character{
     public String getName(){
         return name;
     }
-    public long getMaxHp(){
+    public int getMaxHp(){
         return maxHp;
     }
-    public long getCurrentHp(){
+    public int getCurrentHp(){
         return currentHp;
     }
-    public long getAttack(){
+    public int getAttack(){
         return attack;
     }
-    public long getDefense(){
+    public int getDefense(){
         return defense;
     }
-    public Character(name, maxHp, attack, defense) {
 
     
         
