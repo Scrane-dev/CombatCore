@@ -2,47 +2,68 @@
 
 class Character{
     private String name;
-    private long maxHp;
-    private long currentHp;
-    private long attack;
-    private long defense;
+    private int maxHp;
+    private int currentHp;
+    private int attack;
+    private int defense;
     private String[] actions = {"Attack", "Defend", "Heal"};
-    
-    ///////////////////
-    // Setter methods/
-    /////////////////
-    public void setName(String name) {
+
+    public Character(String name,int maxHp, int attack, int defense) {
         this.name = name;
-    }
-    public void setMaxHp(long maxHp) {
         this.maxHp = maxHp;
-    }
-    public void setCurrentHp(long currentHp) {
-        this.currentHp = currentHp;
-    }
-    public void setAttack(long attack) {
+        this.currentHp = maxHp;
         this.attack = attack;
-    }
-    public void setDefense(long defense) {
         this.defense = defense;
     }
+    // Taking damage
+    public int takeDamage(int damage) {
+        //dmg = raw dmg x (100/ (100 + defense)) I searched for a simple math function 100 22 15
+        this.currentHp = currentHp - (damage * 100) / (100 + this.defense);
+        if (currentHp <= 0) {
+            currentHp = 0;
+        }
+        return currentHp;
+    }
+    // Healing damage
+    public int heal(int currentHp) {
+        this.currentHp = currentHp + 15; // needs work
+        return currentHp;
+    }
+    // Check if dead
+    public boolean dead() {
+        boolean death = false;
+        if (currentHp > 0) {
+            death = false;
+        }
+        else {
+            death = true;
+        }
+        return death;
+    }
+
+    
+            
+    
     //////////////////
     //Getter methods/
     ////////////////
     public String getName(){
         return name;
     }
-    public long getMaxHp(){
+    public int getMaxHp(){
         return maxHp;
     }
-    public long getCurrentHp(){
+    public int getCurrentHp(){
         return currentHp;
     }
-    public long getAttack(){
+    public int getAttack(){
         return attack;
     }
-    public long getDefense(){
+    public int getDefense(){
         return defense;
     }
+
+    
+        
 }
 
